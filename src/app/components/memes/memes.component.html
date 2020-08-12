@@ -1,0 +1,11 @@
+<table>
+<tbody>
+<tr *ngFor="let meme of memes">
+<td>{{ meme.payload.doc.data().meme_id }}</td>
+<td>{{ meme.payload.doc.data().user_id }}</td>
+<td><img src="{{ meme.payload.doc.data().image_data }}" alt=""></td>
+<button (click)="like()">Like</button>
+<button (click)="bookmark()">Bookmark</button>
+</tr>
+</tbody>
+</table>

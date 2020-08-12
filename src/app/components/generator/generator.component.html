@@ -1,0 +1,64 @@
+<div class="app">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="">Select an Image</label>
+                            <input type="file" class="form-control" accept="image/*" (change)='preview($event)'>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Top Text</label>
+                            <input type="text" class="form-control" name="topText"  [(ngModel)]='topText' (keyup)='drawText()'>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Bottom Text</label>
+                            <input type="text" class="form-control" name="bottomText" [(ngModel)]='bottomText' (keyup)='drawText()'>
+                        </div>
+
+                        <div class="card">
+					<div class="card-header">
+						<i class="fa fa-cogs" aria-hidden="true"></i> More options
+					</div>
+					<div class="card-body">
+					
+						<div class="row">
+							<div class="col-md-12">
+								
+								<div class="form-group">
+									<div class="row">
+										<label class="control-label col-md-3" for="text_font_size">Font size:</label>
+										<div class="col-md-7">
+                                        
+											<input [(ngModel)]="fontsize" name="fontsize" style="width:100%" id="text_font_size" type="number" (keyup)='drawText()' />
+                                            <p>{{fontsize}}</p>
+                                           
+										</div>
+										
+									</div>
+								</div>
+
+                                
+                                
+							</div>
+						</div>
+					
+					</div>
+				</div>
+                    <button class="btn btn-outline-primary btn-block" (click)='downloadImg("save")' >Save</button>
+                    <button class="btn btn-outline-primary btn-block" (click)='downloadImg("download")' >Download</button>
+                  
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <canvas class="drop-shadow" #memeCanvas width="700" height="800" style ="background-color:white;">
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>

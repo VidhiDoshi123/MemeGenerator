@@ -3,6 +3,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,8 @@ export class AuthenticationService {
        });
          return a;
      }
+
+    
 
     
 }

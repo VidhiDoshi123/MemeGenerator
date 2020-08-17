@@ -20,10 +20,10 @@ export class GeneratorComponent implements OnInit {
 
   
   async ngOnInit() {
-    let a=await this.auth.Authenticate();
-    if(a==null){
-      this.route.navigate(['/']);
-    }
+    // let a=await this.auth.Authenticate();
+    // if(a==null){
+    //   this.route.navigate(['/']);
+    // }
     
   }
 

@@ -1,11 +1,40 @@
-<table>
-<tbody>
-<tr *ngFor="let meme of memes">
-<td>{{ meme.payload.doc.data().meme_id }}</td>
-<td>{{ meme.payload.doc.data().user_id }}</td>
-<td><img src="{{ meme.payload.doc.data().image_data }}" alt=""></td>
-<button (click)="like()">Like</button>
-<button (click)="bookmark()">Bookmark</button>
-</tr>
+
+
+<div style="width:100%">
+<button style="float:right;" class="btn btn-primary"type="button" (click)="auth.signOut()">Logout</button>
+</div>
+<h1 style="margin-top:20px;align:center;">ALL MEMES:</h1>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let meme of memes;let memeID=index">
+<div class="card" style="width: 18rem;margin:10px 20px;">
+  <img class="card-img-top"  id="meme_img" src="{{ meme.payload.doc.data().image_data }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Meme:{{memeID+1}}</h5>
+        <button class="btn btn-success" (click)="updateLike(memeID)" style="margin:10px 20px;">Like</button>
+        <button class="btn btn-dark" (click)="updateBookmark(memeID)" style="margin:10px 20px;">Bookmark</button>
+    
+  </div>
+</div>
+</div>
+  </div>
+</div>
+
+<h3 style="text-align:center;margin-top:20px;"><strong>Bookmarked Memes!</strong></h3>
+
+<table class="table table-bordered">
+    <thead>
+        <th>Index</th>
+        <th>Meme</th>
+        
+    </thead>
+   <tbody>
+    <tr  *ngFor="let meme of bookmarked_memes; let memeID= index">
+        
+            <td>{{memeID+1}}</td>
+            <td><img src="{{ meme.payload.doc.data().image_data}}" ></td>
+        
+    </tr>
 </tbody>
 </table>

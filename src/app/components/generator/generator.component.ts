@@ -15,7 +15,12 @@ export class GeneratorComponent implements OnInit {
   bottomText: string = '';
   fileEvent: any;
   public fontsize:number=50;
-  constructor(private generatorService: GeneratorService,private auth:AuthenticationService,private route:Router) { }
+  constructor(private generatorService: GeneratorService,public auth:AuthenticationService,private route:Router) {
+    console.log("hello: " + auth.Authenticate());
+    if(!auth.Authenticate()){
+      this.route.navigate(['/']);
+    }
+   }
   user;
 
   

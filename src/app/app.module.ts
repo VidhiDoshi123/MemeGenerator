@@ -10,6 +10,14 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { MemesComponent } from './components/memes/memes.component';
 import { HomeComponent } from './home/home.component';
 import { UserMemesComponent } from './user-memes/user-memes.component';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
+
+// const JWT_Module_Options: JwtModuleOptions = {
+//   config: {
+//       tokenGetter: yourTokenGetter,
+//       whitelistedDomains: yourWhitelistedDomains
+//   }
+// };
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +31,11 @@ import { UserMemesComponent } from './user-memes/user-memes.component';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    // JwtModule.forRoot(JWT_Module_Options)
   ],
-  providers: [],
+  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

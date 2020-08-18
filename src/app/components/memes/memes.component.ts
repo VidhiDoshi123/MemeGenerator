@@ -3,6 +3,7 @@ import {GeneratorService} from '../../services/generator.service';
 import { MemesService} from '../../services/memes.service';
 
 import { AuthenticationService } from 'src/app/authentication.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-memes',
   templateUrl: './memes.component.html',
@@ -13,7 +14,12 @@ export class MemesComponent implements OnInit {
   memes: any;
   bookmarked_memes=[];
 
-  constructor(private memesService:MemesService,public auth:AuthenticationService) { }
+  constructor(private memesService:MemesService,public auth:AuthenticationService,private route:Router) {
+
+    if(!auth.Authenticate()){
+      this.route.navigate(['/']);
+    }
+   }
 
   ngOnInit() {
 
